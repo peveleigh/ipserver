@@ -16,6 +16,7 @@ Usage:
 from dotenv import load_dotenv
 import http.server
 import os
+from pathlib import Path
 import socketserver
 import subprocess
 import sys
@@ -24,8 +25,7 @@ from urllib.error import URLError
 import urllib.request
 from typing import Optional
 
-# Load environment variables from .env file
-load_dotenv()
+env_path = Path('/opt/myapp/.env')
 
 # Configure logging
 logging.basicConfig(
@@ -33,6 +33,12 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger('ipserver')
+
+if env_path.exists():
+    load_dotenv(dotenv_path=env_path)
+    print("Environment variables loaded from /opt/myapp/.env")
+else:
+    logger.error("Failed to find .env file")
 
 def send_gotify_notification(title: str, message: str, priority: int = 5) -> bool:
     """
