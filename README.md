@@ -43,7 +43,7 @@ Create a file named `.env` in the project root directory with the following cont
 
 ```ini
 # Server configuration
-HOST=100.64.0.2:8000  # Or 0.0.0.0 to listen on all interfaces
+HOST=100.64.0.2  # Or 0.0.0.0 to listen on all interfaces
 PORT=8000
 
 # Optional: Gotify notification settings
