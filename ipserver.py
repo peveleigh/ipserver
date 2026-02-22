@@ -25,7 +25,7 @@ from urllib.error import URLError
 import urllib.request
 from typing import Optional
 
-env_path = Path('/opt/ipserver/.env')
+env_path = Path('/etc/ipserver/.env')
 
 # Configure logging
 logging.basicConfig(
@@ -36,7 +36,7 @@ logger = logging.getLogger('ipserver')
 
 if env_path.exists():
     load_dotenv(dotenv_path=env_path)
-    print("Environment variables loaded from /opt/ipserver/.env")
+    print("Environment variables loaded from /etc/ipserver/.env")
 else:
     logger.error("Failed to find .env file")
 
