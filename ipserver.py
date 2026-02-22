@@ -182,7 +182,7 @@ class IPHandler(http.server.SimpleHTTPRequestHandler):
 def main():
     """Set up and start the IP address web server."""
     HOST=os.environ.get('HOST')
-    PORT=os.environ.get('PORT')
+    PORT=int(os.environ.get('PORT'))
     server_address = (HOST, PORT)
     
     try:
