@@ -4,6 +4,8 @@ A simple, lightweight web server that returns your current external IP address.
 
 `ipserver` is a Python script that sets up a local HTTP server to provide your machine's external IP address. It's useful for scenarios where you need to quickly check your public IP from a remote location, integrate with dynamic DNS updates, or simply monitor changes. The IP address is fetched dynamically upon each request, ensuring it's always up-to-date.
 
+This script is intended to be used in conjunction with [crowdsec-ip-check.sh](https://github.com/peveleigh/crowdsec-ip-check). This allows `crowdsec_ip_check.sh` to be hosted on a VPN and `ipserver.py` to be hosted on your home network. Communication between the two can be handled by Tailscale or similar.
+
 ## Features
 
 *   **Dynamic IP Retrieval:** Fetches the external IP address on demand from multiple reliable services (`ifconfig.me`, `api.ipify.org`, `icanhazip.com`).
